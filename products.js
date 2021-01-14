@@ -6,7 +6,7 @@ class Product {
     this.quatity = quatity;
   }
 }
-class ProductManagement {
+export default  class ProductManagement {
   constructor() {
     this.listproducts = new Array();
   }
@@ -23,4 +23,4 @@ class ProductManagement {
     return false;
   }
 }
-export {Product, ProductManagement};
+export {Product}
