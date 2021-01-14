@@ -23,3 +23,4 @@ class ProductManagement {
     return false;
   }
 }
+export {Product, ProductManagement};
