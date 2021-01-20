@@ -36,10 +36,12 @@ export default  class ProductManagement {
     }
     return false;
   }
-  updateProdcuts(product, updateproduct) {
+  updateProdcuts(product, nameup, descup, quaup) {
     for (var i = 0; i < this.listproducts.length; i++) {
       if (this.listproducts[i] == product) {
-        this.listproducts[i] = updateproduct;
+        this.listproducts[i].name = nameup;
+        this.listproducts[i].description = descup;
+        this.listproducts[i].quatity = quaup;
         return true;
       }
     }

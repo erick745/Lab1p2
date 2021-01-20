@@ -17,15 +17,16 @@ class UI {
         this.loadEvents();
         this.loadTable();
     }
+
     loadTable() {
         this.html = `
         <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">HCantidad</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@ class UI {
             <td>${this.lisproducts[i].getDescription()}</td>
             <td>${this.lisproducts[i].getQuantity()}</td>
             <td><button type="button" class="btn btn-danger" ids="${i}">Borrar</button></td>
+            <td><button2 type="button" class="btn btn-success" ids="${i}">actualizar</button></td>
           </tr>`;
 
         }
@@ -53,7 +55,21 @@ class UI {
                 this.loadTable();
             });
         }
+
+        var buttons2 = document.querySelectorAll("button2");
+        for (var i = 0; i < buttons2.length; i++){
+            buttons2[i].addEventListener("click", (e) => {
+                
+                var product = this.lisproducts[Number(e.target.getAttribute("ids"))];
+                var name = document.getElementsByName("name");
+                var description = document.getElementsByName("description");
+                var quantity = document.getElementsByName("quantity");
+                this.productmanagement.updateProdcuts(product, name[0].value, description[0].value, quantity[0].value);
+                this.loadTable();
+            });
+        }  
     }
+
     loadEvents() {
         this.form.addEventListener("submit", (e) => {
             e.preventDefault();
